@@ -17,3 +17,7 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
+- task: Docker@2
+  inputs:
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
