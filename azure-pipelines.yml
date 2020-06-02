@@ -1,4 +1,8 @@
 # ASP.NET Core
+- task: IISWebAppDeploymentOnMachineGroup@0
+  inputs:
+    WebSiteName: 'aspGroup'
+    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
@@ -15,7 +19,3 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- task: IISWebAppDeploymentOnMachineGroup@0
-  displayName: 'Deploy IIS Website/App: '
-  inputs:
-    WebSiteName: aspGroup
