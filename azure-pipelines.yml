@@ -16,18 +16,4 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- task: IISWebAppDeploymentOnMachineGroup@0
-  inputs:
-    webSiteName: 
-    #virtualApplication: # Optional
-    package: '$(System.DefaultWorkingDirectory)\**\*.zip' 
-    #setParametersFile: # Optional
-    #removeAdditionalFilesFlag: false # Optional
-    #excludeFilesFromAppDataFlag: false # Optional
-    #takeAppOfflineFlag: false # Optional
-    #additionalArguments: # Optional
-    #xmlTransformation: # Optional
-    #xmlVariableSubstitution: # Optional
-    #jSONFiles: # Optional
-  
-    
+- task: PublishBuildArtifacts@1
