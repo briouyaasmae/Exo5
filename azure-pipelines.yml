@@ -17,7 +17,7 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   
-- task: IISWebAppDeploymentOnMachineGroup@0
+- task: DotNetCoreCLI@2
   inputs:
-    WebSiteName: 'aspGroup'
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
+    command: 'publish'
+    publishWebProjects: true
