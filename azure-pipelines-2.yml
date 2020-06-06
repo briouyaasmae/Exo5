@@ -27,3 +27,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Exo5/Dockerfile'
         tags: |
           $(tag)
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'asmaebri/asp.net'
+              repository: 'asmaebri/asp.net'
+              command: 'push'
